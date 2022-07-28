@@ -1,18 +1,35 @@
 .wrapper {
   display: grid;
-  grid-template-columns: auto 230px minmax(320px, 1200px) auto;
+  grid-template-columns: minmax(320px, 1fr);
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
   grid-template-areas:
+    "header"
+    "body"
+    "footer";
+  @media(min-width: 768px) {
+    grid-template-columns: auto 230px minmax(320px, 1200px) auto;
+    grid-template-areas:
     ". header header ."
     ". sidebar body ."
-    "footer footer footer footer"
+    "footer footer footer footer";
+  }
 }
 
 .header {
+  @media(min-width: 768px) {
+    display: none;
+  }
   grid-area: header;
+
 }
 
 .sidebar {
   grid-area: sidebar;
+  display: none;
+  @media(min-width: 768px) {
+    display: block;
+  }
 }
 
 .body {
