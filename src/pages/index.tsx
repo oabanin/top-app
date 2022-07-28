@@ -5,8 +5,9 @@ import P from "../components/P/P";
 import Tag from "../components/Tag/Tag";
 import {useEffect, useState} from "react";
 import Rating from "../components/Rating/Rating";
+import {withLayout} from "../layout/Layout";
 
-export default function Home(): JSX.Element {
+function Home(): JSX.Element {
     const [counter, setCounter] = useState<number>(0);
     const [rating, setRating] = useState<number>(4);
 
@@ -28,3 +29,5 @@ export default function Home(): JSX.Element {
         </>
     )
 }
+
+export default withLayout(Home);
